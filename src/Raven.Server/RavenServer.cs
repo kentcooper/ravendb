@@ -57,7 +57,7 @@ namespace Raven.Server
                 _hostingEngine = new WebHostBuilder()
                     .UseConfiguration(Configuration.WebHostConfig)
                     .UseCaptureStartupErrors(true)
-                    .UseServer("Microsoft.AspNet.Server.Kestrel")
+                    .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                     .UseStartup<RavenServerStartup>()
                     .ConfigureServices(services => services.Add(new ServiceDescriptor(Router.GetType(), Router)))
                     // ReSharper disable once AccessToDisposedClosure

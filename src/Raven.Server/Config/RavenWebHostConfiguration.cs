@@ -28,7 +28,7 @@ namespace Raven.Server.Config
 
         public IEnumerable<IConfigurationSection> GetChildren()
         {
-            throw new NotImplementedException();
+            return new IConfigurationSection[0];
         }
 
         public IChangeToken GetReloadToken()
