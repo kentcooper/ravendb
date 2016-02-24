@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Microsoft.AspNet.Server.Kestrel.Networking;
+using Microsoft.AspNetCore.Server.Kestrel.Networking;
 using Raven.Abstractions.Data;
 using Raven.Server.Documents.Indexes;
 using Raven.Server.ServerWide.Context;
@@ -158,7 +158,6 @@ namespace Raven.Server.Documents.Queries.Dynamic
                     //var currentIndex = documentDatabase.IndexDefinitionStorage.GetIndexDefinition(matchResult.IndexName);
                     //map.AddExistingIndexDefinition(currentIndex, documentDatabase, query);
 
-                    break;
             }
 
             index = null;

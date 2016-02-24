@@ -252,12 +252,13 @@ namespace Raven.Server.Documents.Handlers
         }
 
         [RavenAction("/databases/*/document", "PATCH", "/databases/{databaseName:string}/document?id={documentId:string}")]
-        public async Task Patch()
+        public Task Patch()
         {
             MemoryOperationContext context;
             using (ContextPool.AllocateOperationContext(out context))
             {
                 // TODO: We should implement here ScriptedPatchRequest as the EVAL function in v3.5. We retire the v3.0 PATCH method.
+                return Task.CompletedTask;
             }
         }
     }

@@ -33,6 +33,7 @@ namespace Raven.Server.Json
             _context = context;
             _mode = mode;
             _state = state;
+            _debugTag = debugTag;
         }
 
         public void ReadArray()

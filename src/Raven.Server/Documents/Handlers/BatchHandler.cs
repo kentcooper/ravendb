@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNet.WebSockets.Protocol;
+using Microsoft.AspNetCore.WebSockets.Protocol;
 
 using Raven.Abstractions.Extensions;
 using Raven.Server.Json;

@@ -334,11 +334,11 @@ namespace Raven.Server.Documents.Indexes
 
                             _mre.Wait(cts.Token);
                         }
-                        catch (OutOfMemoryException oome)
+                        catch (OutOfMemoryException )
                         {
                             // TODO
                         }
-                        catch (AggregateException ae)
+                        catch (AggregateException )
                         {
                             // TODO
                         }
@@ -346,7 +346,7 @@ namespace Raven.Server.Documents.Indexes
                         {
                             return;
                         }
-                        catch (Exception e)
+                        catch (Exception )
                         {
                             // TODO
                         }
@@ -475,7 +475,7 @@ namespace Raven.Server.Documents.Indexes
                                 {
                                     indexActions.Write(document);
                                 }
-                                catch (Exception e)
+                                catch (Exception )
                                 {
                                     // TODO [ppekrol] log?
                                     continue;

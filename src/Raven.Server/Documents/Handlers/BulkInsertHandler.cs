@@ -98,10 +98,9 @@ namespace Raven.Server.Documents.Handlers
                         {
                             var batchReader = new BinaryReader(stream);
                             var count = batchReader.ReadInt32();
-                            foreach (
-                                var doc in
-                                    await context.ParseMultipleDocuments(stream, count,
-                                        BlittableJsonDocumentBuilder.UsageMode.ToDisk))
+                            var docs = context.ParseMultipleDocuments(stream, count,
+                                BlittableJsonDocumentBuilder.UsageMode.ToDisk);
+                            foreach (var doc in docs)
                             {
                                 BlittableJsonReaderObject metadata;
                                 string id;

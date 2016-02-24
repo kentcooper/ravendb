@@ -42,10 +42,10 @@ namespace Raven.Server.Documents
             new ConcurrentSet<string>(StringComparer.OrdinalIgnoreCase);
 
         private int watchAllDocuments;
-        private int watchAllIndexes;
-        private int watchAllTransformers;
-        private int watchAllReplicationConflicts;
-        private int watchAllDataSubscriptions;
+        //private int watchAllIndexes;
+        //private int watchAllTransformers;
+        //private int watchAllReplicationConflicts;
+        //private int watchAllDataSubscriptions;
 
         public NotificationsClientConnection(WebSocket webSocket, DocumentDatabase documentDatabase)
         {
@@ -344,11 +344,11 @@ namespace Raven.Server.Documents
                 ["SubProtocol"] = _webSocket.SubProtocol,
                 ["Age"] = Age,
                 ["WatchAllDocuments"] = watchAllDocuments > 0,
-                ["WatchAllIndexes"] = watchAllIndexes > 0,
-                ["WatchAllTransformers"] = watchAllTransformers > 0,
-                /*["WatchConfig"] = _watchConfig > 0,
-                ["WatchConflicts"] = _watchConflicts > 0,
-                ["WatchSync"] = _watchSync > 0,*/
+                //["WatchAllIndexes"] = watchAllIndexes > 0,
+                //["WatchAllTransformers"] = watchAllTransformers > 0,
+                ///*["WatchConfig"] = _watchConfig > 0,
+                //["WatchConflicts"] = _watchConflicts > 0,
+                //["WatchSync"] = _watchSync > 0,*/
                 ["WatchDocumentPrefixes"] = _matchingDocumentPrefixes.ToArray(),
                 ["WatchDocumentsInCollection"] = _matchingDocumentsInCollection.ToArray(),
                 ["WatchIndexes"] = _matchingIndexes.ToArray(),

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Http;
 
 using Raven.Server.Json;
 using Raven.Server.Json.Parsing;

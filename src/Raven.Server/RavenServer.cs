@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Raven.Abstractions.Logging;
 using Raven.Server.Config;
@@ -17,7 +17,7 @@ namespace Raven.Server
         public readonly RavenConfiguration Configuration;
 
         public readonly ServerStore ServerStore;
-        private IApplication _application;
+        private IWebHost _hostingEngine;
 
         public RavenServer(RavenConfiguration configuration)
         {
@@ -51,13 +51,15 @@ namespace Raven.Server
 
             Router = new RequestRouter(RouteScanner.Scan(), this);
 
-            IHostingEngine hostingEngine;
+          
             try
             {
-                hostingEngine = new WebHostBuilder(Configuration.WebHostConfig, true)
+                _hostingEngine = new WebHostBuilder()
+                    .UseConfiguration(Configuration.WebHostConfig)
+                    .UseCaptureStartupErrors(true)
                     .UseServer("Microsoft.AspNet.Server.Kestrel")
                     .UseStartup<RavenServerStartup>()
-                    .UseServices(services => services.AddInstance(Router))
+                    .ConfigureServices(services => services.Add(new ServiceDescriptor(Router.GetType(), Router)))
                     // ReSharper disable once AccessToDisposedClosure
                     .Build();
             }
@@ -74,7 +76,7 @@ namespace Raven.Server
 
             try
             {
-                _application = hostingEngine.Start();
+                _hostingEngine.Start();
             }
             catch (Exception e)
             {
@@ -87,7 +89,7 @@ namespace Raven.Server
 
         public void Dispose()
         {
-            _application?.Dispose();
+            _hostingEngine?.Dispose();
             ServerStore?.Dispose();
         }
     }
