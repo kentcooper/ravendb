@@ -12,62 +12,26 @@
     "Voron/Bugs/Data/*.txt"
   ],
 
-  "frameworks": {
-    "dnxcore50": {
-      "dependencies": {
-        "xunit": "2.2.0-beta1-build3239",
-        "xunit.runner.dnx": "2.1.0-rc1-build204",
+  "testRunner": "xunit",
 
-        "Microsoft.CSharp": "4.0.1-*",
-        "System.Console": "4.0.0-*",
-        "Microsoft.AspNetCore.Hosting": "1.0.0-*",
-        "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
-        "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-*",
-        "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
-        "Microsoft.AspNetCore.WebSockets.Server": "0.1.0-*",
-
-        "System.Linq": "4.1.0-*",
-
-        "Microsoft.Win32.Primitives": "4.0.0-*",
-
-        "System.Collections": "4.0.11-*",
-        "System.Collections.Immutable": "1.2.0-*",
-        "System.Collections.Concurrent": "4.0.12-*",
-
-        "System.Diagnostics.Tools": "4.0.1-*",
-        "System.Diagnostics.Debug": "4.0.11-*",
-        "System.Diagnostics.Process": "4.1.0-*",
-        "System.Diagnostics.StackTrace": "4.0.1-*",
-
-        "System.IO": "4.1.0-*",
-        "System.IO.Compression": "4.1.0-*",
-        "System.IO.MemoryMappedFiles": "4.0.0-*",
-        "System.IO.Compression.ZipFile": "4.0.0-*",
-        "System.IO.FileSystem.DriveInfo": "4.0.0-*",
-        "System.IO.FileSystem.Primitives": "4.0.0-*",
-
-        "System.Threading": "4.0.11-*",
-        "System.Threading.Tasks": "4.0.11-*",
-        "System.Threading.Thread": "4.0.0-*",
-        "System.Threading.Overlapped": "4.0.0-*",
-        "System.Threading.Tasks.Parallel": "4.0.0-*",
-
-        "System.Text.Encoding": "4.0.11-*",
-
-        "System.Runtime": "4.1.0-*",
-
-        "System.Reflection.TypeExtensions": "4.1.0-*",
-
-        "System.Runtime.InteropServices.RuntimeInformation": "4.0.0-*"
-
-
-      }
-    }
-  },
   "dependencies": {
+    "System.Linq.Expressions": "4.0.11-*",
+    "System.Linq.Queryable": "4.0.0-*",
+    "dotnet-test-xunit": "1.0.0-*",
+    "NETStandard.Library": "1.0.0-*",
     "Raven.Client": "4.0.0-*",
     "Raven.Server": "4.0.0-*",
     "Sparrow": "4.0.0-*",
     "Voron": "4.0.0-*",
+    "xunit": "2.2.0-*"
+  },
+
+  "frameworks": {
+    "dnxcore50": { 
+     "dependencies": { 
+         "dotnet-test-xunit": "1.0.0-*" 
+       }, 
+       "imports": "portable-net451+win8" 
+     }
   }
 }
