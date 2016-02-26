@@ -55,7 +55,7 @@ namespace Raven.Server
             try
             {
                 _hostingEngine = new WebHostBuilder()
-                    .UseConfiguration(Configuration.WebHostConfig)
+                    .UseSetting("server.urls", Configuration.Core.ServerUrl)
                     .UseCaptureStartupErrors(true)
                     .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                     .UseStartup<RavenServerStartup>()

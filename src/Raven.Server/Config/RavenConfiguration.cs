@@ -84,7 +84,6 @@ namespace Raven.Server.Config
         }
 
         public string DatabaseName { get; set; }
-        public RavenWebHostConfiguration WebHostConfig { get; private set; }
 
         public RavenConfiguration Initialize()
         {
@@ -115,7 +114,6 @@ namespace Raven.Server.Config
 
         public void PostInit()
         {
-            WebHostConfig = new RavenWebHostConfiguration(this);
         }
 
         public void CopyParentSettings(RavenConfiguration serverConfiguration)
