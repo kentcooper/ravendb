@@ -43,7 +43,9 @@ using Raven.Imports.Newtonsoft.Json.Serialization;
 
 namespace Raven.Imports.Newtonsoft.Json.Utilities
 {
-#if (NETFX_CORE || PORTABLE || PORTABLE40)
+
+
+#if (NETFX_CORE || PORTABLE) && !DNXCORE50
     internal enum MemberTypes
     {
         Property = 0,
@@ -52,9 +54,7 @@ namespace Raven.Imports.Newtonsoft.Json.Utilities
         Method = 3,
         Other = 4
     }
-#endif
-
-#if (NETFX_CORE || PORTABLE) && !DNXCORE50
+    
     [Flags]
     internal enum BindingFlags
     {

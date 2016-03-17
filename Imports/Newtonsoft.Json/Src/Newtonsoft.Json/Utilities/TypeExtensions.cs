@@ -99,9 +99,7 @@ namespace Raven.Imports.Newtonsoft.Json.Utilities
 
         public static MemberTypes MemberType(this MemberInfo memberInfo)
         {
-#if !(NETFX_CORE || PORTABLE || PORTABLE40)
-            return memberInfo.MemberType;
-#else
+#if (NETFX_CORE || PORTABLE) && !DNXCORE50
             if (memberInfo is PropertyInfo)
                 return MemberTypes.Property;
             else if (memberInfo is FieldInfo)
@@ -112,6 +110,9 @@ namespace Raven.Imports.Newtonsoft.Json.Utilities
                 return MemberTypes.Method;
             else
                 return MemberTypes.Other;
+#else
+            return memberInfo.MemberType;
+            
 #endif
         }
 
